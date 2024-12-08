@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
 
     public float speed = 500.0f;
 
     public float maxLifetime = 10.0f;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D _rigidbody;
 
     private void Awake()
     {

@@ -13,30 +13,38 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
 
     public int score = 0;
-    public void AsteriodDestroyed(Asteriod asteriod)
+    public void AsteriodDestroyed(Asteroid asteriod)
     {
-        this.explosion.transform.position = this.asteriod.transform.position;
+        this.explosion.transform.position = asteriod.transform.position;
         this.explosion.Play();
 
-        if (asteriod.size < 0.75f) {
+        if (asteriod.size < 0.75f)
+        {
             this.score += 100;
-        } else if (asteriod.size < 1.2f) {
+        }
+        else if (asteriod.size < 1.2f)
+        {
             this.score += 50;
-        } else {
+        }
+        else
+        {
             this.score += 25;
         }
     }
     public void PlayerDied()
     {
-        this.explosion.transform.position = this.player.transform.position; 
+        this.explosion.transform.position = this.player.transform.position;
         this.explosion.Play();
 
         this.lives--;
 
-        if (this.lives == 0){
+        if (this.lives == 0)
+        {
             GameOver();
-        } else {
-        Invoke(nameof(Respawn), this.respawnTime);
+        }
+        else
+        {
+            Invoke(nameof(Respawn), this.respawnTime);
         }
     }
 
@@ -45,7 +53,7 @@ public class GameManager : MonoBehaviour
         this.player.transform.position = Vector3.zero;
         this.player.gameObject.layer = LayerMask.NameToLayer("Ignore Collisions");
         this.player.gameObject.SetActive(true);
-        
+
         Invoke(nameof(TurnOnCollisions), this.respawnInvulnerbilityTime);
     }
 

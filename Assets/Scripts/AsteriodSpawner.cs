@@ -10,7 +10,8 @@ public class AsteroidSpawner : MonoBehaviour
 
     public float spawnDistance = 15.0f;
 
-    public indexer spawnAmount = 1;
+    public int spawnAmount = 1;
+
     private void Start()
     {
         InvokeRepeating(nameof(Spawn), this.spawnRate, this.spawnRate);
@@ -27,7 +28,7 @@ public class AsteroidSpawner : MonoBehaviour
             Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
 
             Asteroid asteriod = Instantiate(this.asteroidPrefab, spawnPoint, rotation);
-            asteriod.size = Random(asteriod.minSize, asteriod.maxSize);
+            asteriod.size = Random.Range(asteriod.minSize, asteriod.maxSize);
             asteriod.SetTrajectory(rotation * -spawnDirection);
         }
 
