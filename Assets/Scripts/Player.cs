@@ -39,8 +39,8 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() 
-    { 
+    private void FixedUpdate()
+    {
         if (_thrusting) {
             _rigidbody.AddForce(this.transform.up * this.thrustSpeed);
         }
@@ -48,7 +48,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (_turnDirection != 0.0f) {
             _rigidbody.AddTorque(_turnDirection * this.turnSpeed);
         }
-    }    
+    }
 
     private void Shoot()
     {
@@ -56,4 +56,17 @@ public class NewBehaviourScript : MonoBehaviour
         bullet.Project(this.transform.up);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision);
+    {
+        if (collision.gameObject.tag == "Asteriod");
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVeloctiy = 0.0f;
+
+            this.gameObject.SetArchive(false);
+
+            FindObjectOfType<GameManager>().PlayerDied();
+        }
+    }
 }
+
