@@ -68,10 +68,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Asteroid"))
         {
-            _rigidbody.velocity = Vector3.zero;
-            _rigidbody.angularVelocity = 0f;
-
-            FindObjectOfType<GameManager>().AsteriodDestroyed(this);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 
