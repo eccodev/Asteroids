@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Asteriod : MonoBehaviour
+public class Asteroid : MonoBehaviour
 {
     public Sprite[] sprites;
 
@@ -9,6 +9,10 @@ public class Asteriod : MonoBehaviour
     public float minSize = 0.5f;
 
     public float maxSize = 1.5f;
+
+    public float speed = 5.0f;
+
+    public float maxLifetime = 30.0f;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -26,5 +30,14 @@ public class Asteriod : MonoBehaviour
 
         this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f);
         this.transform.localScale = Vector3.one * this.size;
+
+        _rigidbody.mass = this.size;
+    }
+
+    public void SetTrajectory(Vector2 direction)
+    {
+        _rigidbody.AddForce(direction * this.speed);
+
+        Destroy(this.gameObject, this.maxLifetime);
     }
 }

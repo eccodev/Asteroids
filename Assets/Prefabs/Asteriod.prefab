@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6344294025753214369}
   - component: {fileID: 3433164838812697028}
   - component: {fileID: 3741505084267435748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Asteriod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
