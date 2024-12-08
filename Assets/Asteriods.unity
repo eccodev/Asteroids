@@ -5419,6 +5419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1069496377}
+  - component: {fileID: 1069496378}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5441,6 +5442,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1069496378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069496376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc19e671501a274aac989b4633576ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2065353474}
+  explosion: {fileID: 0}
+  respawnTime: 3
+  respawnInvulnerbilityTime: 3
+  lives: 3
+  score: 0
 --- !u!1 &1869675004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5450,6 +5469,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1869675005}
+  - component: {fileID: 1869675006}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -5472,6 +5492,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1869675006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869675004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae434468b6386948bf1722bca4da85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPrefab: {fileID: 3548391436578099960, guid: 1ede4f42409e83647b5c3d17075a3f2c, type: 3}
+  trajectoryVariance: 15
+  spawnRate: 2
+  spawnDistance: 15
+  spawnAmount: 1
 --- !u!1 &2065353471
 GameObject:
   m_ObjectHideFlags: 0
