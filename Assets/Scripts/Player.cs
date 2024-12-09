@@ -5,9 +5,9 @@ public class Player : MonoBehaviour
 
     public Bullet bulletPrefab;
 
-    public float thrustSpeed = 1.0f;
+    public float thrustSpeed = 1.5f;
 
-    public float turnSpeed = 1.0f;
+    public float turnSpeed = 0.25f;
 
     private Rigidbody2D _rigidbody;
 
