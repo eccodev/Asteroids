@@ -11,9 +11,12 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
-    private bool _thrusting;
+    private bool thrusting;
 
-    private float _turnDirection;
+    private float turnDirection;
+
+    Vector2 direction = Vector2.zero;
+
 
 
     private void Awake()
@@ -21,40 +24,47 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    void Start()
+    {
+        transform.position = Vector3.zero;
+        
+    }
 
     private void Update()
     {
-        _thrusting = (Input.GetKey(KeyCode.W));
 
+        // Movement
+        thrusting = (Input.GetKey(KeyCode.W));
         if (Input.GetKey(KeyCode.A))
         {
-            _turnDirection = 1.0f;
+            turnDirection = 1.0f;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            _turnDirection = -1.0f;
+            turnDirection = -1.0f;
         }
         else
         {
-            _turnDirection = 0.0f;
+            turnDirection = 0.0f;
         }
-
+        // Shootment
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
     }
 
+
     private void FixedUpdate()
     {
-        if (_thrusting)
+        if (thrusting)
         {
             _rigidbody.AddForce(this.transform.up * this.thrustSpeed);
         }
 
-        if (_turnDirection != 0.0f)
+        if (turnDirection != 0.0f)
         {
-            _rigidbody.AddTorque(_turnDirection * this.turnSpeed);
+            _rigidbody.AddTorque(turnDirection * this.turnSpeed);
         }
     }
 
